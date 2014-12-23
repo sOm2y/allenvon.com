@@ -1,0 +1,27 @@
+@font-face {
+	font-family: 'MYRIADPROREGULAR';
+	src: url('./fonts/MYRIADPROREGULAR.eot');
+	src: local('MYRIADPROREGULAR'), url('./fonts/MYRIADPROREGULAR.woff') format('woff'), url('./fonts/MYRIADPROREGULAR.ttf') format('truetype');
+}
+/* use this class to attach this font to any element i.e. <p class="fontsforweb_fontid_4410">Text with this font applied</p> */
+body {
+	font-family: 'MYRIADPROREGULAR' !important;
+  
+    padding: 0;
+    margin: 0;
+}
+p{
+    font-size: 1.2em;
+    line-height: 1.8;
+
+}
+a{
+    text-decoration: none;
+    color: #57AAAA;
+
+}
+img{
+    border-radius: 1000px;
+
+}
+/* Font downloaded from FontsForWeb.com */
