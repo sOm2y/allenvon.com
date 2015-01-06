@@ -1,3 +1,27 @@
+
+<?php 
+
+if(isset($_POST['submit'])){
+    $to = "sam@som2y.com"; // this is your Email address
+    $from = $_POST['email']; // this is the sender's Email address
+    $name = $_POST['name'];
+    $message = $_POST['message'];
+  	echo $to+$name+$message;
+
+    $headers = "From:" . $from;
+    $headers2 = "From:" . $to;
+    //echo $to+$name+$message;
+    mail($to,$name,$message,$headers);
+//    mail($from,$name,$message); // sends a copy of the message to the sender
+    echo "Mail Sent. Thank you " . $name . ", we will contact you shortly.";
+    // You can also use header('Location: thank_you.php'); to redirect to another page.
+    }
+?>
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 	<head>
@@ -357,7 +381,7 @@
 			</div>
 				<div class="row">
 				    <div class="col-md-7"> 
-                       <p>Hello! My name is Allen, I am a landscape and lifestyle photographer based in Auckland, New Zealand. I enjoy waking up every morning with a creative mind and being able to capture moments around me. Photographs speak more than words, I hope you have an idea of what my passion is and enjoy scrolling through my works. I will be regularly updating my photos so please stay tuned.  If you have any enquiries, please do not hesitate to contact me through <a id="email" >voncreativenz@gmail.com                 </a>
+                       <p>Hello! My name is Allen, I am a landscape and lifestyle photographer based in Auckland, New Zealand. I enjoy waking up every morning with a creative mind and being able to capture moments around me. Photographs speak more than words, I hope you have an idea of what my passion is and enjoy scrolling through my works. I will be regularly updating my photos so please stay tuned.  If you have any enquiries, please do not hesitate to contact me through <a id="email" href="mailto:voncreativenz@gmail.com" >voncreativenz@gmail.com                 </a>
                        </p>
                     </div>
 				   
@@ -384,7 +408,7 @@
               <div class="about_container">
                   
                       
-                     <form class="form-horizontal" action="mailto:samyin1990@gmail.com" method="post" enctype="text/plain">
+                     <form class="form-horizontal"  action="" method="post" enctype="text/plain">
                        
 
                         
@@ -393,7 +417,7 @@
                         <div class="form-group" style="margin-top:20%;margin-right:8%;">
                           <label class="col-md-4 control-label" for="textinput"style="margin-top:10px;">Your name</label>  
                           <div class="col-md-6">
-                          <input id="textinput" name="name" type="text" placeholder="type your mail" class="form-control input-md"style="margin-top:10px;">
+                          <input id="textinput" name="name" type="text" placeholder="type your name" class="form-control input-md"style="margin-top:10px;">
                          
                           </div>
                         </div>
@@ -411,14 +435,14 @@
                         <div class="form-group" style="margin-right:8%;">
                           <label class="col-md-4 control-label" for="textarea"style="margin-top:10px;">Your Messeage</label>
                           <div class="col-md-6">                     
-                            <textarea class="form-control" id="textarea" name="textarea" rows="10"style="margin-top:10px;" placeholder="type your message"></textarea>
+                            <textarea class="form-control" id="textarea" name="message" rows="10"style="margin-top:10px;" placeholder="type your message"></textarea>
                           </div>
                         </div>
                                 
                                 
                                 <div class="col-md-6"></div>
                           
-                               <div class="col-md-6" style="margin-top:20px;"> <input type="submit" value="Send"></div>
+                               <div class="col-md-6" style="margin-top:20px;"> <input class="btn-submit" type="submit" value="submit" name="submit"></div>
                                
                         
                             
@@ -441,12 +465,12 @@
 			<nav id="bt-menu" class="bt-menu">
 				<a href="#" class="bt-menu-trigger"><span>Menu</span></a>
 				<ul>
-				    <li><a href="home.html" id="home" class="active">portfolio</a></li>
+				    <li><a href="home.php" id="home" class="active">portfolio</a></li>
 					
-					<li><a href="" class="md-trigger" data-modal="modal-12" id="about">About me</a></li>
+					<li><a href="home.php" class="md-trigger" data-modal="modal-12" id="about">About me</a></li>
 				
 <!--					<li><a href="#">Blog</a></li>-->
-					<li><a href="" id="contact">Contact</a></li>
+					<li><a href="home.php" id="contact">Contact</a></li>
 					
 <!--
 				   <div class="logo">
@@ -480,11 +504,11 @@
     <script src="js/css-filters-polyfill.js"></script>
 -->
 	
-	<script type="text/javascript" src="/fancybox/source/helpers/jquery.fancybox-buttons.js"></script>
-    <script type="text/javascript" src="/fancybox/source/helpers/jquery.fancybox-media.js"></script>
-    <script type="text/javascript" src="/fancybox/lib/jquery.mousewheel-3.0.6.pack.js"></script>
-    <script type="text/javascript" src="/fancybox/source/jquery.fancybox.pack.js"></script>
-    <script type="text/javascript" src="/fancybox/source/helpers/jquery.fancybox-thumbs.js"></script>
+	<script type="text/javascript" src="fancybox/source/helpers/jquery.fancybox-buttons.js"></script>
+    <script type="text/javascript" src="fancybox/source/helpers/jquery.fancybox-media.js"></script>
+    <script type="text/javascript" src="fancybox/lib/jquery.mousewheel-3.0.6.pack.js"></script>
+    <script type="text/javascript" src="fancybox/source/jquery.fancybox.pack.js"></script>
+    <script type="text/javascript" src="fancybox/source/helpers/jquery.fancybox-thumbs.js"></script>
    
     
 		<script type="text/javascript">
@@ -582,11 +606,63 @@
 //            
 //            
 //            });
-//            
+
+
+
                               
            
 
 		</script>
+	<?php 
+
+	
+	if ($_GET['portfolio']==true) :
+		 // echo $_GET['portfolio'];
+	
+		?>
+		<script>
+		jQuery(document).ready(function($){
+			 $(".grid").fadeIn("slow");
+                    $("img").fadeIn("slow");
+                    $(".figure").fadeIn("slow");
+                    $(".figcaption").fadeIn("slow");
+                    $("div.row").fadeOut("slow");
+                    $("#portrait").fadeOut("slow")
+                    
+                    $(".form-horizontal").hide();
+                    $(".active").removeClass();
+                    $("#home").addClass("active");
+                
+		});
+		</script>
+	
+	<?php endif; ?>
+
+	<?php 
+
+	
+	if ($_GET['contact']==true) :
+		 // echo $_GET['portfolio'];
+	
+		?>
+		<script>
+		jQuery(document).ready(function($){
+			  $(".grid").fadeOut("slow");
+              $("img").fadeOut("slow");
+              $(".figure").fadeOut("slow");
+              $(".figcaption").fadeOut("slow");
+                     
+              $("div.row").hide();
+              $("#portrait").hide()
+              $(".form-group").fadeIn("slow"); 
+                   
+              $(".form-horizontal").fadeIn("slow");
+              $(".active").removeClass();
+              $("#contact").addClass("active");
+		});
+		</script>
+	
+	<?php endif; ?>
 
 	
 </html>

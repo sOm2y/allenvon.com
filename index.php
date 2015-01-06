@@ -45,7 +45,9 @@
                    
                 </div>
                 <div class="logo">
-                   <a href="home.html"><img src="images/logo.png"></a>
+                    <img src="images/logo.png"> <br>
+                   <a href="home.php?portfolio=true">portfolio</a>
+                   <a href="home.php?contact=true">contact</a>
                 </div>
                 <div class="bx-container">
                    
@@ -64,6 +66,12 @@
         <script type="text/javascript" src="js/StackBlur.js"></script>
         <script type="text/javascript">
             $(function() {
+
+
+
+
+
+
 				
                 var BlurBGImage	= (function() {
 					
@@ -374,31 +382,181 @@
                 
                 // call the init function
                 BlurBGImage.init();
-                //initAutoSlide();
                 
+               
+                var autoslides = (function(){
+                    var $bxWrapper          = $('#bx-wrapper');
+                    // loading status to show while preloading images
+                    $bxLoading          = $bxWrapper.find('div.bx-loading');
+                    // container for the bg images and respective canvas
+                    $bxContainer        = $bxWrapper.find('div.bx-container');
+                    // the bg images we are gonna use
+                    $bxImgs             = $bxContainer.children('img');
+                    // total number of bg images
+                    bxImgsCount         = $bxImgs.length;
+                    // the thumb elements
+                    $thumbs             = $bxWrapper.find('div.bx-thumbs > a').hide();
+                    // the title for the current image
+                    $title              = $bxWrapper.find('h2:first');
+                    // current image's index
+                    current             = 0;
+                        
+                    
+                    // variation to show the image:
+                    // (1) - blurs the current one, fades out and shows the next image
+                    // (2) - blurs the current one, fades out, shows the next one (but initially blurred)
+                    // speed is the speed of the animation
+                    // blur Factor is the factor used in the StackBlur script
+                    animOptions         = { speed : 1000, variation : 1, blurFactor : 20 };
+                    // control if currently animating
+                    isAnim              = false;
+                    // check if canvas is supported
+                    supportCanvas       = Modernizr.canvas;
+
+                    // set the variable which holds the number of steps/slides you have
+                    var totalSteps = 5;
+                    // set the current selected step, default is the first slide.
+                    var selectedStep = 0; 
+                    // assign this to a variable so you can use later
+                    var myInterval = null;
+
+                    var start = function(){
+
+                    myInterval = window.setInterval(function(){
+
+                        // increment the step
+                        selectedStep++;
+
+                        // check that we are not attempting to select a step that doesn't exist
+                        if ( selectedStep > totalSteps ){
+                            // reset back to 1
+                            selectedStep = 0;
+                        }
+
+                        // call the function with the selected step
+                        selectStep(selectedStep);
+
+                    }, 8000);        
+
+                };
+
+
                 
-                
-                function initAutoSlide(){
-                      var pos=1;
+               
+
+
+          
+                function selectStep(pos){
+                     var $bxWrapper = $('#bx-wrapper');
+                     $slide = $bxWrapper.find("#"+pos);
                      
-                      setTimeout(slide(pos) , 0);
-  
-                                                 
-                      
-                                          
-                }
-                function slide(pos){
-                     var $bxWrapper	= $('#bx-wrapper'),
-                     $slide = $bxWrapper.find("#"+pos),
-                     $thumbs= $bxWrapper.find('div.bx-thumbs > a').hide();
+                     $thumbs= $bxWrapper.find('div.bx-thumbs > a');
+                     $thumb = $bxWrapper.find('a.bx-thumbs-current');
                     
+                 
+                                    
+                                $thumbs.removeClass('bx-thumbs-current');
+                                $slide .addClass('bx-thumbs-current');
+                                isAnim = true;
+                                // show the bg image
+                                showImage( pos );
+                                pos++;
+                                
+                    
+                  
                    
-                    $thumbs.removeClass('bx-thumbs-current');
-                    $slide.addClass('bx-thumbs-current');
-                    showImage(pos)
-                    pos++;
                 }
-                    
+
+                 // shows the image at position "pos"
+                function showImage( pos ) {
+                        
+                        // current image 
+                        var $bxImage        = $bxImgs.eq( current );
+                        // current canvas
+                        $bxCanvas       = $bxContainer.children('canvas[data-pos=' + $bxImage.index() + ']'),
+                        // next image to show
+                        $bxNextImage    = $bxImgs.eq( pos ),
+                        // next canvas to show
+                        $bxNextCanvas   = $bxContainer.children('canvas[data-pos='+$bxNextImage.index()+']');
+                            
+                        // if canvas is supported
+                        if( supportCanvas ) {
+                            
+                            $.when( $title.fadeOut() ).done( function() {
+                                
+                                $title.text( $bxNextImage.attr('title') );
+                                    
+                            });
+                            
+                            $bxCanvas.css( 'z-index', 100 ).css('visibility','visible');
+                                
+                            $.when( $bxImage.fadeOut( animOptions.speed ) ).done( function() {
+                                    
+                                switch( animOptions.variation ) {
+                                    
+                                    case 1  :
+                                        $title.fadeIn( animOptions.speed );
+                                        $.when( $bxNextImage.fadeIn( animOptions.speed ) ).done( function() {
+                                        
+                                            $bxCanvas.css( 'z-index', 1 ).css('visibility','hidden');
+                                            current = pos;
+                                            $bxNextCanvas.css('visibility','hidden');
+                                            isAnim  = false;
+                                            
+                                        });
+                                        break;
+                                    case 2  :
+                                        $bxNextCanvas.css('visibility','visible');
+                                            
+                                        $.when( $bxCanvas.fadeOut( animOptions.speed * 1.5 ) ).done( function() {
+                                            
+                                            $(this).css({
+                                                'z-index'       : 1,
+                                                'visibility'    : 'hidden'
+                                            }).show();
+                                                
+                                            $title.fadeIn( animOptions.speed );
+                                                
+                                            $.when( $bxNextImage.fadeIn( animOptions.speed ) ).done( function() {
+                                                    
+                                                current = pos;
+                                                $bxNextCanvas.css('visibility','hidden');
+                                                isAnim  = false;
+                                                
+                                            });
+                                                
+                                        });
+                                        break;
+                                    
+                                };
+                                    
+                            });
+                            
+                        }
+                        // if canvas is not shown just work with the bg images
+                        else {
+                                
+                            $title.hide().text( $bxNextImage.attr('title') ).fadeIn( animOptions.speed );
+                            $.when( $bxNextImage.css( 'z-index', 102 ).fadeIn( animOptions.speed ) ).done( function() {
+                                    
+                                current = pos;
+                                $bxImage.hide();
+                                $(this).css( 'z-index', 101 );
+                                isAnim = false;
+                                
+                            });
+                            
+                        }
+                        
+                    };
+
+
+                    start();
+                });
+
+                
+                     
+                 autoslides();
                 
 				
             });
