@@ -1,7 +1,3 @@
-
-
-
-
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 	<head>
@@ -13,31 +9,28 @@
 		<meta name="keywords" content="PhotoGraph, Arts, Creative" />
 		<meta name="author" content="sOm2y" />
 		<link rel="shortcut icon" href="./favicon.ico">
-		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
-		<link rel="stylesheet" type="text/css" href="css/main.css" />
+		<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url');?>/css/normalize.css" />
+		<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url');?>/css/main.css" />
 <!--		<link rel="stylesheet" type="text/css" href="css/icons.css" />-->
-		<link rel="stylesheet" type="text/css" href="css/sideBar.css" />
-		<link rel="stylesheet" href="css/component.css">
+		<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url');?>/css/sideBar.css" />
+		<link rel="stylesheet" href="<?php bloginfo('template_url');?>/css/component.css">
 		
 		
 		<!-- Add fancyBox -->
-        <link rel="stylesheet" href="/fancybox/source/jquery.fancybox.css" type="text/css" media="screen" />
+        <link rel="stylesheet" href="<?php bloginfo('template_url');?>/fancybox/source/jquery.fancybox.css" type="text/css" media="screen" />
 
         <!-- Optionally add helpers - button, thumbnail and/or media -->
-        <link rel="stylesheet" href="/fancybox/source/helpers/jquery.fancybox-buttons.css" type="text/css" media="screen" />
+        <link rel="stylesheet" href="<?php bloginfo('template_url');?>/fancybox/source/helpers/jquery.fancybox-buttons.css" type="text/css" media="screen" />
 
 
-        <link rel="stylesheet" href="/fancybox/source/helpers/jquery.fancybox-thumbs.css" type="text/css" media="screen" />
+        <link rel="stylesheet" href="<?php bloginfo('template_url');?>/fancybox/source/helpers/jquery.fancybox-thumbs.css" type="text/css" media="screen" />
         
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 <!--
         
          <link rel="stylesheet" href="css/about.css">
 -->
-       <link rel="stylesheet" href="css/bootstrap.css">
-       
-   
-		<script src="js/modernizr.custom.js"></script>
+       <link rel="stylesheet" href="<?php bloginfo('template_url');?>/css/bootstrap.css">
 	</head>
 	<body>
 	<?php 
@@ -67,282 +60,7 @@
 		<div class="container" id="container">
 			
             <div class="grid" id="grid">
-            	<figure class="effect-chico">
-					<img src="thumb/1.jpg" alt="img1"/>
-					<figcaption>
-						
-						<p style="margin-top:25%;">VIEW MORE</p>
-						<a class="fancybox-thumb" rel="fancybox-thumb" href="img/1.jpg">View more</a>
-					</figcaption>			
-				</figure>
-				<figure class="effect-chico">
-					<img src="thumb/2.jpg" alt="img2"/>
-					<figcaption>
-						
-						<p style="margin-top:25%;">VIEW MORE</p>
-						<a class="fancybox-thumb" rel="fancybox-thumb" href="img/2.jpg">View more</a>
-					</figcaption>			
-				</figure>
-				<figure class="effect-chico">
-					<img src="thumb/3.jpg" alt="img3"/>
-					<figcaption>
-						
-						<p style="margin-top:25%;">VIEW MORE</p>
-						<a class="fancybox-thumb" rel="fancybox-thumb" href="img/3.jpg">View more</a>
-					</figcaption>			
-				</figure>
-				<figure class="effect-chico">
-					<img src="thumb/4.jpg" alt="img4"/>
-					<figcaption>
-						
-						<p style="margin-top:25%;">VIEW MORE</p>
-						<a class="fancybox-thumb" rel="fancybox-thumb" href="img/4.jpg">View more</a>
-					</figcaption>			
-				</figure>
-				<figure class="effect-chico">
-					<img src="thumb/5.jpg" alt="img5"/>
-					<figcaption>
-						
-						<p style="margin-top:25%;">VIEW MORE</p>
-						<a class="fancybox-thumb" rel="fancybox-thumb" href="img/5.jpg">View more</a>
-					</figcaption>			
-				</figure>
-				<figure class="effect-chico">
-					<img src="thumb/6.jpg" alt="img6"/>
-					<figcaption>
-						
-						<p style="margin-top:25%;">VIEW MORE</p>
-						<a class="fancybox-thumb" rel="fancybox-thumb" href="img/6.jpg">View more</a>
-					</figcaption>			
-				</figure>
-				<figure class="effect-chico">
-					<img src="thumb/7.jpg" alt="img7"/>
-					<figcaption>
-						
-						<p style="margin-top:25%;">VIEW MORE</p>
-						<a class="fancybox-thumb" rel="fancybox-thumb" href="img/7.jpg">View more</a>
-					</figcaption>			
-				</figure>
-				<figure class="effect-chico">
-					<img src="thumb/8.jpg" alt="img8"/>
-					<figcaption>
-						
-						<p style="margin-top:25%;">VIEW MORE</p>
-						<a class="fancybox-thumb" rel="fancybox-thumb" href="img/8.jpg">View more</a>
-					</figcaption>			
-				</figure>
-				<figure class="effect-chico">
-					<img src="thumb/9.jpg" alt="img9"/>
-					<figcaption>
-						
-						<p style="margin-top:25%;">VIEW MORE</p>
-						<a class="fancybox-thumb" rel="fancybox-thumb" href="img/9.jpg">View more</a>
-					</figcaption>			
-				</figure>
-				<figure class="effect-chico">
-					<img src="thumb/10.jpg" alt="img10"/>
-					<figcaption>
-						
-						<p style="margin-top:25%;">VIEW MORE</p>
-						<a class="fancybox-thumb" rel="fancybox-thumb" href="img/10.jpg">View more</a>
-					</figcaption>			
-				</figure>
-				<figure class="effect-chico">
-					<img src="thumb/11.jpg" alt="img11"/>
-					<figcaption>
-						
-						<p style="margin-top:25%;">VIEW MORE</p>
-						<a class="fancybox-thumb" rel="fancybox-thumb" href="img/11.jpg">View more</a>
-					</figcaption>			
-				</figure>
-				<figure class="effect-chico">
-					<img src="thumb/12.jpg" alt="img12"/>
-					<figcaption>
-						
-						<p style="margin-top:25%;">VIEW MORE</p>
-						<a class="fancybox-thumb" rel="fancybox-thumb" href="img/12.jpg">View more</a>
-					</figcaption>			
-				</figure>
-				<figure class="effect-chico">
-					<img src="thumb/13.jpg" alt="img13"/>
-					<figcaption>
-						
-						<p style="margin-top:25%;">VIEW MORE</p>
-						<a class="fancybox-thumb" rel="fancybox-thumb" href="img/13.jpg">View more</a>
-					</figcaption>			
-				</figure>
-				<figure class="effect-chico">
-					<img src="thumb/14.jpg" alt="img14"/>
-					<figcaption>
-						
-						<p style="margin-top:25%;">VIEW MORE</p>
-						<a class="fancybox-thumb" rel="fancybox-thumb" href="img/14.jpg">View more</a>
-					</figcaption>			
-				</figure>
-				<figure class="effect-chico">
-					<img src="thumb/15.jpg" alt="img15"/>
-					<figcaption>
-						
-						<p style="margin-top:25%;">VIEW MORE</p>
-						<a class="fancybox-thumb" rel="fancybox-thumb" href="img/15.jpg">View more</a>
-					</figcaption>			
-				</figure>
-				<figure class="effect-chico">
-					<img src="thumb/16.jpg" alt="img16"/>
-					<figcaption>
-						
-						<p style="margin-top:25%;">VIEW MORE</p>
-						<a class="fancybox-thumb" rel="fancybox-thumb" href="img/16.jpg">View more</a>
-					</figcaption>			
-				</figure>
-				<figure class="effect-chico">
-					<img src="thumb/17.jpg" alt="img17"/>
-					<figcaption>
-						
-						<p style="margin-top:25%;">VIEW MORE</p>
-						<a class="fancybox-thumb" rel="fancybox-thumb" href="img/17.jpg">View more</a>
-					</figcaption>			
-				</figure>
-				<figure class="effect-chico">
-					<img src="thumb/18.jpg" alt="img18"/>
-					<figcaption>
-						
-						<p style="margin-top:25%;">VIEW MORE</p>
-						<a class="fancybox-thumb" rel="fancybox-thumb" href="img/18.jpg">View more</a>
-					</figcaption>			
-				</figure>
-				<figure class="effect-chico">
-					<img src="thumb/19.jpg" alt="img19"/>
-					<figcaption>
-						
-						<p style="margin-top:25%;">VIEW MORE</p>
-						<a class="fancybox-thumb" rel="fancybox-thumb" href="img/19.jpg">View more</a>
-					</figcaption>			
-				</figure>
-				<figure class="effect-chico">
-					<img src="thumb/20.jpg" alt="img20"/>
-					<figcaption>
-						
-						<p style="margin-top:25%;">VIEW MORE</p>
-						<a class="fancybox-thumb" rel="fancybox-thumb" href="img/20.jpg">View more</a>
-					</figcaption>			
-				</figure>
-				<figure class="effect-chico">
-					<img src="thumb/31.jpg" alt="img31"/>
-					<figcaption>
-						
-						<p style="margin-top:25%;">VIEW MORE</p>
-						<a class="fancybox-thumb" rel="fancybox-thumb" href="img/31.jpg">View more</a>
-					</figcaption>			
-				</figure>
-				<figure class="effect-chico">
-					<img src="thumb/21.jpg" alt="img21"/>
-					<figcaption>
-						
-						<p style="margin-top:25%;">VIEW MORE</p>
-						<a class="fancybox-thumb" rel="fancybox-thumb" href="img/21.jpg">View more</a>
-					</figcaption>			
-				</figure>
-				<figure class="effect-chico">
-					<img src="thumb/22.jpg" alt="img22"/>
-					<figcaption>
-						
-						<p style="margin-top:25%;">VIEW MORE</p>
-						<a class="fancybox-thumb" rel="fancybox-thumb" href="img/22.jpg">View more</a>
-					</figcaption>			
-				</figure>
-				<figure class="effect-chico">
-					<img src="thumb/23.jpg" alt="img23"/>
-					<figcaption>
-						
-						<p style="margin-top:25%;">VIEW MORE</p>
-						<a class="fancybox-thumb" rel="fancybox-thumb" href="img/23.jpg">View more</a>
-					</figcaption>			
-				</figure>
-				<figure class="effect-chico">
-					<img src="thumb/24.jpg" alt="img24"/>
-					<figcaption>
-						
-						<p style="margin-top:25%;">VIEW MORE</p>
-						<a class="fancybox-thumb" rel="fancybox-thumb" href="img/24.jpg">View more</a>
-					</figcaption>			
-				</figure>
-				<figure class="effect-chico">
-					<img src="thumb/25.jpg" alt="img25"/>
-					<figcaption>
-						
-						<p style="margin-top:25%;">VIEW MORE</p>
-						<a class="fancybox-thumb" rel="fancybox-thumb" href="img/25.jpg">View more</a>
-					</figcaption>			
-				</figure>
-				<figure class="effect-chico">
-					<img src="thumb/26.jpg" alt="img26"/>
-					<figcaption>
-						
-						<p style="margin-top:25%;">VIEW MORE</p>
-						<a class="fancybox-thumb" rel="fancybox-thumb" href="img/26.jpg">View more</a>
-					</figcaption>			
-				</figure>
-				<figure class="effect-chico">
-					<img src="thumb/27.jpg" alt="img27"/>
-					<figcaption>
-						
-						<p style="margin-top:25%;">VIEW MORE</p>
-						<a class="fancybox-thumb" rel="fancybox-thumb" href="img/27.jpg">View more</a>
-					</figcaption>			
-				</figure>
-				<figure class="effect-chico">
-					<img src="thumb/28.jpg" alt="img28"/>
-					<figcaption>
-						
-						<p style="margin-top:25%;">VIEW MORE</p>
-						<a class="fancybox-thumb" rel="fancybox-thumb" href="img/28.jpg">View more</a>
-					</figcaption>			
-				</figure>
-				<figure class="effect-chico">
-					<img src="thumb/29.jpg" alt="img29"/>
-					<figcaption>
-						
-						<p style="margin-top:25%;">VIEW MORE</p>
-						<a class="fancybox-thumb" rel="fancybox-thumb" href="img/29.jpg">View more</a>
-					</figcaption>			
-				</figure>
-				<figure class="effect-chico">
-					<img src="thumb/30.jpg" alt="img30"/>
-					<figcaption>
-						
-						<p style="margin-top:25%;">VIEW MORE</p>
-						<a class="fancybox-thumb" rel="fancybox-thumb" href="img/30.jpg">View more</a>
-					</figcaption>			
-				</figure>
-				
-				<figure class="effect-chico">
-					<img src="thumb/32.jpg" alt="img32"/>
-					<figcaption>
-						
-						<p style="margin-top:25%;">VIEW MORE</p>
-						<a class="fancybox-thumb" rel="fancybox-thumb" href="img/32.jpg">View more</a>
-					</figcaption>			
-				</figure>
-				
-				<figure class="effect-chico">
-					<img src="thumb/33.jpg" alt="img33"/>
-					<figcaption>
-						
-						<p style="margin-top:25%;">VIEW MORE</p>
-						<a class="fancybox-thumb" rel="fancybox-thumb" href="img/33.jpg">View more</a>
-					</figcaption>			
-				</figure>
-				
-				<figure class="effect-chico">
-					<img src="thumb/34.jpg" alt="img34"/>
-					<figcaption>
-						
-						<p style="margin-top:25%;">VIEW MORE</p>
-						<a class="fancybox-thumb" rel="fancybox-thumb" href="img/34.jpg">View more</a>
-					</figcaption>			
-				</figure>
-				
+            
 				<figure class="effect-chico">
 					<img src="thumb/35.jpg" alt="img35"/>
 					<figcaption>
@@ -494,9 +212,10 @@
 		</div><!-- /container -->
 	</body>
 	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
-	<script src="js/classie.js"></script>
-	<script src="js/borderMenu.js"></script>
-	<script src="js/modalEffects.js"></script>
+    <script src="<?php bloginfo('template_url');?>/js/modernizr.custom.js"></script>
+	<script src="<?php bloginfo('template_url');?>/js/classie.js"></script>
+	<script src="<?php bloginfo('template_url');?>/js/borderMenu.js"></script>
+	<script src="<?php bloginfo('template_url');?>/js/modalEffects.js"></script>
 	<!-- for the blur effect -->
     <!-- by @derSchepp https://github.com/Schepp/CSS-Filters-Polyfill -->
 <!--
@@ -508,11 +227,11 @@
     <script src="js/css-filters-polyfill.js"></script>
 -->
 	
-	<script type="text/javascript" src="fancybox/source/helpers/jquery.fancybox-buttons.js"></script>
-    <script type="text/javascript" src="fancybox/source/helpers/jquery.fancybox-media.js"></script>
-    <script type="text/javascript" src="fancybox/lib/jquery.mousewheel-3.0.6.pack.js"></script>
-    <script type="text/javascript" src="fancybox/source/jquery.fancybox.pack.js"></script>
-    <script type="text/javascript" src="fancybox/source/helpers/jquery.fancybox-thumbs.js"></script>
+	<script type="text/javascript" src="<?php bloginfo('template_url');?>/fancybox/source/helpers/jquery.fancybox-buttons.js"></script>
+    <script type="text/javascript" src="<?php bloginfo('template_url');?>/fancybox/source/helpers/jquery.fancybox-media.js"></script>
+    <script type="text/javascript" src="<?php bloginfo('template_url');?>/fancybox/lib/jquery.mousewheel-3.0.6.pack.js"></script>
+    <script type="text/javascript" src="<?php bloginfo('template_url');?>/fancybox/source/jquery.fancybox.pack.js"></script>
+    <script type="text/javascript" src="<?php bloginfo('template_url');?>/fancybox/source/helpers/jquery.fancybox-thumbs.js"></script>
    
     
 		<script type="text/javascript">
