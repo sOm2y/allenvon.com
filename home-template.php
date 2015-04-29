@@ -1,3 +1,10 @@
+<?php
+/*
+Template Name:home-template
+* Version: 1.0
+*/
+?>
+
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 	<head>
@@ -31,6 +38,8 @@
          <link rel="stylesheet" href="css/about.css">
 -->
        <link rel="stylesheet" href="<?php bloginfo('template_url');?>/css/bootstrap.css">
+
+
 	</head>
 	<body>
 	<?php 
@@ -67,17 +76,22 @@
 
                             // vars
                             $image = get_sub_field('image');
+                            $attachment_id = get_sub_field('image');
+                            $thumbnail_size = "portfolio"; // (thumbnail, medium, large, full or custom size)
+                            $full_size="full";
+                            $thumbnail_image = wp_get_attachment_image_src( $attachment_id, $thumbnail_size );
+                            $full_image = wp_get_attachment_image_src( $attachment_id, $full_size );
 
                             ?>
                                    
-							    <figure class="effect-chico">
-								<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>"/>
-								<figcaption>
-									
-									<p style="margin-top:25%;">VIEW MORE</p>
-									<a class="fancybox-thumb" rel="fancybox-thumb" href="<?php echo $image['url']; ?>">View more</a>
-								</figcaption>			
-							</figure>
+        							    <figure class="effect-chico">
+          								<img src="<?php echo $thumbnail_image[0]; ?>" alt=""/>
+          								<figcaption>
+          									
+          									<p style="margin-top:25%;">VIEW MORE</p>
+          									<a class="fancybox-thumb" rel="fancybox-thumb" href="<?php echo $full_image[0]; ?>">View more</a>
+          								</figcaption>			
+          							</figure>
 			                               
 
                         <?php endwhile; ?>
@@ -87,70 +101,53 @@
                     <?php endif; ?>
 				
 			</div>
-				
-<!--
-				
-				<div class="md-modal md-effect-12" id="modal-12">
-			<div class="md-content">
-				<h3>Modal Dialog</h3>
-				<div>
-					<p>This is a modal window. You can do the following things with it:</p>
-					<ul>
-						<li><strong>Read:</strong> modal windows will probably tell you something important so don't forget to read what they say.</li>
-						<li><strong>Look:</strong> a modal window enjoys a certain kind of attention; just look at it and appreciate its presence.</li>
-						<li><strong>Close:</strong> click on the button below to close the modal.</li>
-					</ul>
-					<button class="md-close">Close me!</button>
-				</div>
-			</div>
-		</div>
-				
-				
-				
--->
+
            <div class="about_container">
-               
-              	<div class="row" style="margin-bottom:40px;margin-top:10%;">
-			    
-			    <p><em>“When words become unclear, I shall focus with photographs. When images become inadequate, I shall be                         content with silence.” <br>
-                            <span style="float:right;margin-right:15%;">― Ansel Adams</span> 
-                </em></p>
-			    
-			</div>
-				<div class="row">
-				    <div class="col-md-7"> 
-                       <p>Hello! My name is Allen, I am a landscape and lifestyle photographer based in Auckland, New Zealand. I enjoy waking up every morning with a creative mind and being able to capture moments around me. Photographs speak more than words, I hope you have an idea of what my passion is and enjoy scrolling through my works. I will be regularly updating my photos so please stay tuned.  If you have any enquiries, please do not hesitate to contact me through <a id="email" href="mailto:voncreativenz@gmail.com" >voncreativenz@gmail.com                 </a>
-                       </p>
-                    </div>
-				   
-               
-                   <div class="col-md-4">
-                       
-                        
-                           
-                        <a id="head" href="img/head.jpg" title="Allenvon">
-                             <img id="portrait" style="width:300px;border-radius:180px;" src="img/head.jpg" alt="portrait">
-                       
-                       </a>
 
-                       
-                   </div>
-               
-				    
-				    
-				    
-				</div>
-              
-              
-              
-              <div class="about_container">
-                  
+           <?php
+
+            // check if the flexible content field has rows of data
+            if( have_rows('about_me') ):
+
+                 // loop through the rows of data
+                while ( have_rows('about_me') ) : the_row();
+
+                    if( get_row_layout() == 'about_me' ):
+                      ?>
+                      <div class="row" style="margin-bottom:40px;margin-top:10%;">
+          
+                             <p><em><?php the_sub_field('quote'); ?>
+                            </em></p>
                       
-                     <form class="form-horizontal"  action="" method="post">
+                        </div>
+                        <div class="row">
+                          <div class="col-md-7"> 
+                              <?php the_sub_field('description'); ?>
+                          </div>
                        
+                           
+                            <div class="col-md-4">                
+                                    <a id="head" href="<?php the_sub_field('image'); ?>" title="Allenvon">
+                                         <img id="portrait" style="width:300px;border-radius:180px;" src="<?php the_sub_field('image'); ?>" alt="portrait">
+                                   
+                                   </a>
+                            </div>
+                      
+                        </div>
+                      <?php
 
-                        
-                        
+                    endif;
+
+                endwhile;
+
+                // no layouts found
+
+            endif;
+
+            ?>
+              <div class="about_container">
+                  <form class="form-horizontal"  action="" method="post">
+
                         <!-- Text input-->
                         <div class="form-group" style="margin-top:20%;margin-right:8%;">
                           <label class="col-md-4 control-label" for="textinput"style="margin-top:10px;">Your name</label>  
@@ -180,41 +177,22 @@
                                 
                                 <div class="col-md-6"></div>
                           
-                               <div class="col-md-6" style="margin-top:20px;"> <input class="btn-submit" type="submit" value="submit" name="submit"></div>
-                               
-                        
-                            
-                           
-                    </form>
-                      
+                               <div class="col-md-6" style="margin-top:20px;"> <input class="btn-submit" type="submit" value="submit" name="submit"></div>                    
+                    </form>                  
                   
-                  
-                  
-                  
-              </div>
-               
-            
-				
-               
+              </div>      
                
            </div>
-           
-			
+           		
 			<nav id="bt-menu" class="bt-menu">
 				<a href="#" class="bt-menu-trigger"><span>Menu</span></a>
 				<ul>
-				    <li><a href="home.php" id="home" class="active">portfolio</a></li>
+				  <li><a href="home.php" id="home" class="active">portfolio</a></li>
 					
 					<li><a href="home.php" class="md-trigger" data-modal="modal-12" id="about">About me</a></li>
-				
-<!--					<li><a href="#">Blog</a></li>-->
+			
 					<li><a href="home.php" id="contact">Contact</a></li>
 					
-<!--
-				   <div class="logo">
-                        <img src="img/logo.png" alt="logo">
-                    </div>
--->
 				</ul>
                
 				<ul>
@@ -228,23 +206,10 @@
 		</div><!-- /container -->
 	</body>
 	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
-    <script src="<?php bloginfo('template_url');?>/js/modernizr.custom.js"></script>
+  <script src="<?php bloginfo('template_url');?>/js/modernizr.custom.js"></script>
 	<script src="<?php bloginfo('template_url');?>/js/classie.js"></script>
 	<script src="<?php bloginfo('template_url');?>/js/borderMenu.js"></script>
-	<script src="<?php bloginfo('template_url');?>/js/modalEffects.js"></script>
-	<!-- for the blur effect -->
-    <!-- by @derSchepp https://github.com/Schepp/CSS-Filters-Polyfill -->
-<!--
-    <script>
-        // this is important for IEs
-        var polyfilter_scriptpath = '/js/';
-    </script>
-    <script src="js/cssParser.js"></script>
-    <script src="js/css-filters-polyfill.js"></script>
--->
-	
-	<script type="text/javascript" src="<?php bloginfo('template_url');?>/fancybox/source/helpers/jquery.fancybox-buttons.js"></script>
-    <script type="text/javascript" src="<?php bloginfo('template_url');?>/fancybox/source/helpers/jquery.fancybox-media.js"></script>
+
     <script type="text/javascript" src="<?php bloginfo('template_url');?>/fancybox/lib/jquery.mousewheel-3.0.6.pack.js"></script>
     <script type="text/javascript" src="<?php bloginfo('template_url');?>/fancybox/source/jquery.fancybox.pack.js"></script>
     <script type="text/javascript" src="<?php bloginfo('template_url');?>/fancybox/source/helpers/jquery.fancybox-thumbs.js"></script>
@@ -266,7 +231,7 @@
                     }
                 });
                 $("div.row").hide();
-                $(".form-horizontal").hide();
+                // $(".form-horizontal").hide();
                 $("#home").click(function(){
                     
                     $(".grid").fadeIn("slow");
@@ -327,24 +292,8 @@
                     
                     return false;
                 });
-                
-                
-//                $("#about").click(function(){
-//                    $("#home").removeClass("active");
-//                    $("#about").addClass("active");
-//                    document.getElementById("#container").innerHTML="about!!!";
-//                
-//                
-//                });
            
             });
-          
-            
-//            $("#about").click(function(){
-//                $("body").css({"background":"black","z-index":"93"});
-//            
-//            
-//            });
 
 
 			setTimeout(function() {
@@ -362,16 +311,16 @@
 		?>
 		<script>
 		jQuery(document).ready(function($){
-			 $(".grid").fadeIn("slow");
-                    $("img").fadeIn("slow");
-                    $(".figure").fadeIn("slow");
-                    $(".figcaption").fadeIn("slow");
-                    $("div.row").fadeOut("slow");
-                    $("#portrait").fadeOut("slow")
+			  $(".grid").fadeIn("slow");
+        $("img").fadeIn("slow");
+        $(".figure").fadeIn("slow");
+        $(".figcaption").fadeIn("slow");
+        $("div.row").fadeOut("slow");
+        $("#portrait").fadeOut("slow")
                     
-                    $(".form-horizontal").hide();
-                    $(".active").removeClass();
-                    $("#home").addClass("active");
+        $(".form-horizontal").hide();
+        $(".active").removeClass();
+        $("#home").addClass("active");
                 
 		});
 		</script>
@@ -381,25 +330,23 @@
 	<?php 
 	$contact = isset($_GET['contact']) ? $_GET['contact'] : '';
 	
-	if ($contact == true) :
-		 // echo $_GET['portfolio'];
-	
+	if ($contact == true) :	
 		?>
 		<script>
-		jQuery(document).ready(function($){
+		    alert("this is contact!");
 			  $(".grid").fadeOut("slow");
-              $("img").fadeOut("slow");
-              $(".figure").fadeOut("slow");
-              $(".figcaption").fadeOut("slow");
+        $("img").fadeOut("slow");
+        $(".figure").fadeOut("slow");
+        $(".figcaption").fadeOut("slow");
                      
-              $("div.row").hide();
-              $("#portrait").hide()
-              $(".form-group").fadeIn("slow"); 
+        $("div.row").hide();
+        $("#portrait").hide()
+        $(".form-group").fadeIn("slow"); 
                    
-              $(".form-horizontal").fadeIn("slow");
-              $(".active").removeClass();
-              $("#contact").addClass("active");
-		});
+        $(".form-horizontal").show();
+        $(".active").removeClass();
+        $("#contact").addClass("active");
+
 		</script>
 	
 	<?php endif; ?>
