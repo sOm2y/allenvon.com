@@ -15,7 +15,7 @@ Template Name:home-template
 		<meta name="description" content="Allenvon Creative" />
 		<meta name="keywords" content="PhotoGraph, Arts, Creative" />
 		<meta name="author" content="sOm2y" />
-		<link rel="shortcut icon" href="./favicon.ico">
+		<link rel="shortcut icon" href="<?php bloginfo('template_url');?>/favicon.ico">
 		<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url');?>/css/normalize.css" />
 		<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url');?>/css/main.css" />
 		<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url');?>/css/sideBar.css" />
