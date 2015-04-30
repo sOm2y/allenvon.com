@@ -28,7 +28,6 @@
                 </div>		
 				<div class="bx-thumbs">
                    
-<!--                    style="background-color:black;"-->
                     <a href="#" id="0" class="bx-thumbs-current"></a>
                     <a href="#" id="1"></a>
                     <a href="#" id="2" ></a>

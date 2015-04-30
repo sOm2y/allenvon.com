@@ -117,10 +117,15 @@ body  {
 	padding: 0;
 	list-style: none;
 }
+#author{
+	position: absolute;
+	bottom:100px;
+}
 
 .bt-menu ul:first-of-type {
 	top: 100px;
 	left: 0;
+	height: 100%;
 }
 
 .bt-menu ul:nth-of-type(2) {
@@ -254,4 +259,11 @@ background: #57aaaa;
 }
 .bt-menu ul li a.active:hover{
 color: #fff;
+}
+
+@media (max-width: 420px){
+	#author{
+	
+		bottom:150px;
+	}
 }

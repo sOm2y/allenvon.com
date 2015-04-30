@@ -18,7 +18,6 @@ Template Name:home-template
 		<link rel="shortcut icon" href="./favicon.ico">
 		<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url');?>/css/normalize.css" />
 		<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url');?>/css/main.css" />
-<!--		<link rel="stylesheet" type="text/css" href="css/icons.css" />-->
 		<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url');?>/css/sideBar.css" />
 		<link rel="stylesheet" href="<?php bloginfo('template_url');?>/css/component.css">
 		
@@ -192,15 +191,17 @@ Template Name:home-template
 					<li><a href="home.php" class="md-trigger" data-modal="modal-12" id="about">About me</a></li>
 			
 					<li><a href="home.php" id="contact">Contact</a></li>
+          <li id="author"><a  href="http://som2y.com">&#60; &#62; with &#10084; by sOm2y</a></li> 
 					
 				</ul>
                
 				<ul>
-<!--				    <li><a style="color:#fff;" href="http://som2y.com">Powered By sOm2y</a></li>-->
+				
 					<li><a href="http://instagram.com/alnvon" target="_blank" class="fa fa-instagram " style="margin-top:12px;"></a></li>
 					<li><a href="https://www.flickr.com/photos/124710685@N08/" target="_blank" class="fa fa-flickr" style="margin-top:12px;"></a></li>
 					<li><a href="https://www.facebook.com/allenvoncreativenz" target="_blank" class="fa fa-facebook-square"style="margin-top:12px;"></a></li>
 					<li><a href="http://weibo.com/alnfeng" target="_blank" class="fa fa-weibo" style="margin-top:12px;"></a></li>
+
 				</ul>
 			</nav>
 		</div><!-- /container -->
@@ -333,7 +334,6 @@ Template Name:home-template
 	if ($contact == true) :	
 		?>
 		<script>
-		    alert("this is contact!");
 			  $(".grid").fadeOut("slow");
         $("img").fadeOut("slow");
         $(".figure").fadeOut("slow");
